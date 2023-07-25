@@ -25,9 +25,13 @@ class _MotherScreenState extends State<MotherScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: PageView.builder(itemBuilder: (_, index) {
-          return _screens[_currentPage];
-        }),
+        child: PageView.builder(
+            physics: ScrollPhysics(
+              parent: NeverScrollableScrollPhysics(),
+            ),
+            itemBuilder: (_, index) {
+              return _screens[_currentPage];
+            }),
       ),
       bottomNavigationBar: BottomNavigationBar(
         onTap: (value) {
